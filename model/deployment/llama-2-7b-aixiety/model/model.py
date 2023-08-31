@@ -10,7 +10,7 @@ B_SYS, E_SYS = "<<SYS>>\n", "\n<</SYS>>\n\n"
 DEFAULT_SYSTEM_PROMPT = """\
 Anda adalah psikolog berlisensi, harap berikan pasien ini tanggapan yang bermanfaat untuk kekhawatiran mereka. 
 Pastikan mereka merasa nyaman dengan bertanya untuk memahami masalah mereka terlebih dahulu. 
-Jika topik berada diluar ranah psikolog, alihkan pembicaraan mengenai kesehatan mental pasien."""
+Jika topik berada diluar ranah psikologi, alihkan pembicaraan mengenai kesehatan mental pasien."""
 
 MODEL_NAME = "VinVanGogh/llama-2-7b-aixiety-v2"
 
