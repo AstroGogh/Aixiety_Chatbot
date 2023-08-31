@@ -43,8 +43,8 @@ system_packages: []
 train:
   resources:
     accelerator: null
-    cpu: 500m
-    memory: 512Mi
+    cpu: '1'
+    memory: 2Gi
     use_gpu: false
   training_class_filename: train.py
   training_class_name: Train

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: llama-2-7b-aixiety
+  name: llama-2-7b-aixiety-v2
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: llama-2-7b-aixiety-layer
+      component: llama-2-7b-aixiety-v2-layer 
   template:
     metadata:
       labels:
-        component: llama-2-7b-aixiety-layer
+        component: llama-2-7b-aixiety-v2-layer
     spec:
       containers:
-      - name: truss-falcon-7b-container
-        image: <your_docker_id>/falcon-7b-model:latest
+      - name: llama-2-7b-aixiety-v2-container
+        image: astrogogh/llama-2-7b-aixiety-v2:latest
         ports:
           - containerPort: 8080
         resources:
@@ -25,12 +25,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: truss-falcon-7b-service
+  name: llama-2-7b-aixiety-v2-service
   namespace: default
 spec:
-  type: ClusterIP
+  type: LoadBalancer
+  externalTrafficPolicy: Cluster
   selector:
-    component: truss-falcon-7b-layer
+    component: llama-2-7b-aixiety-v2-layer
   ports:
   - port: 8080
     protocol: TCP
