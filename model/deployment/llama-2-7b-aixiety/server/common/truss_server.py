@@ -27,6 +27,7 @@ from shared.serialization import (
 )
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import Response
+from fastapi.middleware.cors import CORSMiddleware
 
 # [IMPORTANT] A lot of things depend on this currently.
 # Please consider the following when increasing this:
@@ -231,7 +232,15 @@ class TrussServer:
                 errors.ModelNotReady: errors.model_not_ready_handler,
                 NotImplementedError: errors.not_implemented_error_handler,
                 Exception: errors.generic_exception_handler,
-            },
+            }
+        )
+
+        app.add_middleware(
+            CORSMiddleware,
+            allow_origins=["*", "http://localhost:3000", "http://127.0.0.1:3000", "http://localhost", "http://127.0.0.1"],
+            allow_credentials=True,
+            allow_methods=["*"],
+            allow_headers=["*"],
         )
 
         def exit_self():
