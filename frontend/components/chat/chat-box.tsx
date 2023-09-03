@@ -29,7 +29,8 @@ export default function ChatBox() {
             const histTemp = [...histories, history]
             console.log(histTemp)
 
-            fetch("http://34.71.57.145:8080/v1/models/model:predict", {
+            // "https://10.128.0.62:8080/v1/models/model:predict"
+            fetch("https://aixiety.my.id/v1/models/model:predict", {
                 method: 'POST',
                 body: JSON.stringify({ "history": histTemp.slice(1) }),
                 headers: {

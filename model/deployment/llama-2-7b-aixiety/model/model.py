@@ -85,6 +85,8 @@ class Model:
                 prompt = format_to_llama_chat_style(history)
                 data = self.pipeline(
                     prompt,
+                    do_sample=True,
+                    top_k=10,
                     eos_token_id=self.tokenizer.eos_token_id,
                     max_length=2048,
                 )[0]

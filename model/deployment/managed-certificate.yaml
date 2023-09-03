@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: aixiety-certificate
+  namespace: default
+spec:
+  domains:
+    - aixiety.my.id
